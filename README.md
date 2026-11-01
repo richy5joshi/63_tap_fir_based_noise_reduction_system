@@ -1,2 +1,0 @@
-# 63_tap_fir_based_noise_reduction_system
-63_tap_fir_based_noise_reduction_system
