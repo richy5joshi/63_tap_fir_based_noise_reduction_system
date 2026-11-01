@@ -1,0 +1,56 @@
+Vivado Simulation Flow
+1. Open Xilinx Vivado and select Create Project.
+
+2. Create a New Project
+- Project Name: FIR_Noise_Reduction
+- Select project location.
+- Click Next.
+3. Select Project Type
+- Choose RTL Project.
+- Select Do not specify sources at this time.
+- Click Next.
+4. Select FPGA Device
+- Choose the required FPGA device or part.
+- Click Next → Finish.
+5. Add FIR Filter RTL
+- Go to Flow Navigator → Add Sources.
+- Select Add or Create Design Sources.
+- Add fir_filter.vhd.
+- Click Finish.
+6. Add Testbench
+- Go to Add Sources.
+- Select Add or Create Simulation Sources.
+- Add fir_filter_tb.vhd.
+- Click Finish.
+7. Set Simulation Top
+- Expand Simulation Sources.
+- Right-click fir_filter_tb.
+- Select Set as Top.
+8. Add Memory Files
+- Ensure the following files are accessible from the simulator's working directory:
+  - input_data.mem
+  - fir_coefficients.mem
+  - expected_output.mem
+- Check that their paths match those specified in the testbench.
+9. Configure Simulation
+- Open Settings → Simulation.
+- Select Vivado Simulator (XSIM).
+- Confirm fir_filter_tb is the simulation top.
+- Use Behavioral Simulation.
+10. Run Simulation
+- Go to Flow Navigator → Run Simulation → Run Behavioral Simulation.
+- Wait for compilation and elaboration.
+- Click Run All.
+11. Add Waveform Signals
+- Select the testbench or DUT instance in Scopes.
+- Select the required signals in Objects.
+- Right-click → Add to Wave Window.
+- Click Zoom Fit.
+12. Verify Output
+- Check input and output waveforms.
+- Compare the VHDL output with the GNU Octave reference output.
+- Verify all 338 valid output samples.
+- Record the actual mismatch count and simulation status.
+Final flow:
+
+Create Project → Add RTL → Add Testbench → Set Simulation Top → Add Memory Files → Configure XSIM → Run Behavioral Simulation → View Waveforms → Verify Outputs
